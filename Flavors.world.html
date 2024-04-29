@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Flavors World</title>
+
+    <style>
+        body {
+            background-color: #FFFFFF;
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: #654321;
+            margin-bottom: 20px;
+        }
+
+        .menu-button,
+        .order-button,
+        .video-button {
+            display: block;
+            width: 200px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            background-color: #FF00FF;
+            color: #FFF;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .order-form {
+            display: none;
+        }
+
+        #menu {
+            display: none;
+        }
+
+        #video-container {
+            text-align: center;
+        }
+
+        #video {
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <marquee scrollamount="5">A Symphony of Flavors with Flavors World Shop🍦</marquee>
+
+        <img src="Flavors World.jpg" alt="Flavors World" width="400" height="250">
+        <p>Where Every Scoop Tells a <strong>Delicious</strong> Story!</p>
+        <a href="#video" class="video-button" onclick="showVideo()">Watch Video</a> <!-- New Video Button -->
+        <a href="#menu" class="menu-button" onclick="showMenu()">Menu</a>
+        <a href="#order" class="order-button">Order Now</a>
+    </div>
+
+    <!-- Menu Section -->
+    <div id="menu">
+        <hr>
+        <h1>🍴 Our Menu </h1>
+        <hr>
+        <h2>🍨 Ice cream Flavors </h2>
+        <ul>
+            <li>Strawberry🍓</li>
+            <li>Cookies and Cream🍪</li>
+            <li>Vanilla🍨</li>
+            <li>Coconut Cream🥥</li>
+            <li>Matcha🍵</li>
+            <li>Mango🥭</li>
+            <li>Peanut Butter🥜</li>
+            <li>Blueberry🫐</li>
+            <li>Chocolate🍫</li>
+            <li>Lemon & mint🍋</li>
+            <li>Tiramisu☕️</li>
+            <li>Cherry🍒</li>
+            <li>Watermelon🍉</li>
+        </ul>
+        <hr>
+        <h2>🍨 Add Toppings </h2>
+        <ul>
+            <li>Chocolate</li>
+            <li>Caramel</li>
+            <li>Sprinkles</li>
+            <li>Marshmallow</li>
+            <li>Whipped cream</li>
+            <li>Fresh fruit</li>
+        </ul>
+        <a href="#" class="menu-button" onclick="window.location.reload();">Back to Homepage</a>
+    </div>
+
+    <!-- Order Section -->
+    <div id="order" class="order-form">
+        <hr>
+        <h2>Order Now 🛒</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required><br><br>
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required><br><br>
+            <label for="order">Order:</label>
+            <textarea id="order" name="order" required></textarea><br><br>
+            <label for="payment">Payment Method:</label>
+            <select id="payment" name="payment" required>
+                <option value="credit">Credit Card</option>
+                <option value="cash">Cash on Delivery</option>
+                <option value="stc">STC Pay</option>
+            </select><br><br>
+            <button type="submit">Place Order</button>
+        </form>
+        <p id="confirmation" style="display: none; color: green;">Thank you! We will process your order quickly.</p>
+    </div>
+
+    <!-- Video Section -->
+    <div id="video-container" style="display: none;">
+        <video id="video" controls>
+            <source src="video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <br>
+        <a href="#" class="menu-button" onclick="window.location.reload();">Back to Homepage</a>
+    </div>
+</div>
+
+<script>
+    function showMenu() {
+        document.getElementById("menu").style.display = "block";
+        document.getElementById("order").style.display = "none";
+        document.getElementById("video-container").style.display = "none";
+    }
+
+    function showVideo() {
+        document.getElementById("menu").style.display = "none";
+        document.getElementById("order").style.display = "none";
+        document.getElementById("video-container").style.display = "block";
+    }
+
+    document.querySelector('.order-button').addEventListener('click', function() {
+        document.getElementById("menu").style.display = "none";
+        document.getElementById("order").style.display = "block";
+        document.getElementById("video-container").style.display = "none";
+    });
+
+    document.querySelector('form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        document.getElementById('confirmation').style.display = 'block';
+        document.querySelector('.order-form').reset();
+    });
+</script>
+</body>
+</html>
